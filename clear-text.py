@@ -61,19 +61,12 @@ def _process(lines):
     apply_filter(remove_stops, lines)
     return [line for line in map(list, lines) if len(line) > 1]
 
+genres = ['comedies', 'fantasy', 'adventure', 'action', 'melodrama', 'horrors']
 
 text = _load_file_data('initial/horrors.txt')
+newFile = open('clean/clean-horrors.txt', "a", encoding='utf-8')
 
-def removeStop(line):
-    return ' '.join([word for word in line.split() if word.lower() not in cachedStopWords])
+for i in range(len(text)):
+    newFile.write(' '.join(text[i]) + '\n')
 
-f = open('test.txt', encoding='utf-8')
-newFile = open('comedies-horrors-train-without-stop-words.txt', "a", encoding='utf-8')
-
-count = 0
-
-lines = f.readlines();
-
-for i in range(len(lines)):
-    lines[i] = removeStop(lines[i])
-    newFile.write(lines[i] + '\n')
+print('test')

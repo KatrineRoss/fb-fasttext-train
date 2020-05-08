@@ -10,10 +10,10 @@ import fasttext
 morph = pymorphy2.MorphAnalyzer()
 corpus_file = datapath('lee_background.cor')
 
-model = fasttext.train_supervised('C:/projects/fastText/test1.txt');
+model = fasttext.train_supervised('train-comedies-horrors.txt');
 
-# model.save_model("hc-model.bin")
+model.save_model("comedies-horrors-model.bin")
 
-
+result = model.predict('девушка заброшенный дом призрак')
 
 print('test');
